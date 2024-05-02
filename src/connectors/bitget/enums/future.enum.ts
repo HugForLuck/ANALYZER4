@@ -1,0 +1,5 @@
+export enum FUTURE {
+  BTCUSDT = 'BTCUSDT_UMCBL',
+  ETHUSDT = 'ETHUSDT_UMCBL',
+  NONE = 'NONE',
+}
