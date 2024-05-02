@@ -13,3 +13,14 @@ export namespace CONFIG {
 export const CONFIG_OPTIONS = {
   isGlobal: true,
 };
+
+export const MYSQL_CONFIG = {
+  type: 'mysql',
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: 'root',
+  database: 'Local instance MySQL80',
+  entities: [],
+  synchronize: true,
+};

@@ -6,10 +6,10 @@ import { ITradeRateResponse } from '../interfaces/tradeRateResponse.interface';
 import { Fees } from '../classes/fees';
 import { SymbolFeesParams } from '../classes/symbolFeesParams';
 import { SYMBOL } from '../enums/symbols.enum';
-import { PATH } from '../consts/path.const';
+import { PATH } from '../consts/path';
 import { Trader } from '../classes/trader';
 import { FUTURE } from '../enums/future.enum';
-import { PARAMS } from '../requests/classes/params';
+import { PARAMS } from '../consts/params';
 
 @Injectable()
 export class BitgetService {

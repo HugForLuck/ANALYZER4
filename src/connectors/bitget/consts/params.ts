@@ -1,5 +1,5 @@
-import { Trader } from '../../classes/trader';
-import { FUTURE } from '../../enums/future.enum';
+import { Trader } from '../classes/trader';
+import { FUTURE } from '../enums/future.enum';
 
 export namespace PARAMS {
   export const PASTORDERS = (
