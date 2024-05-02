@@ -1,8 +1,8 @@
 import { APIResponse } from 'bitget-api';
-import { IFeeRate } from '../interfaces/tradeRate.interface';
+import { ISymbolFees } from '../interfaces/symbolFees.interface';
 import { ITradeRateResponse } from '../interfaces/tradeRateResponse.interface';
 
-export class Fees implements IFeeRate {
+export class Fees implements ISymbolFees {
   public maker: string;
   public taker: string;
   constructor(
