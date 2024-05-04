@@ -13,6 +13,7 @@ import { Trader } from 'src/db/traders/trader.entity';
 import { TraderService } from 'src/db/traders/trader.service';
 import { CONNECTOR } from 'src/connectors/connector.enum';
 import { OrderService } from 'src/db/orders/order.service';
+import { formatTimestamp } from 'src/app/utils/date.utils';
 
 @Injectable()
 export class BitgetService {
@@ -29,8 +30,8 @@ export class BitgetService {
     console.log(traders);
     const orders = await this.getPastOrders(traders[0], FUTURE.BTCUSDT);
     console.table(orders.data);
-    const ordersDB = await this.getPastDBOrders(traders[0]);
-    console.table(ordersDB);
+    const lastOrderTime = await this.getLastOrderTime(traders[0]);
+    console.log(formatTimestamp(lastOrderTime));
   }
 
   async getSymbolFees(symbol: SYMBOL): Promise<ISymbolFees> {
@@ -45,8 +46,9 @@ export class BitgetService {
     return this.client.postPrivate(PATH.TRADER_HISTORY, params);
   }
 
-  async getPastDBOrders(trader: Trader) {
-    return this.orderService.getLastOrder(trader);
+  async getLastOrderTime(trader: Trader) {
+    const lastOrder = await this.orderService.getLastOrderTime(trader);
+    return lastOrder[0]?.openTime ?? 0;
   }
 
   async getTraders() {
