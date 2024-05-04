@@ -1,13 +1,13 @@
-import { Trader } from '../classes/trader';
+import { Trader } from 'src/db/traders/trader.entity';
 import { FUTURE } from '../enums/future.enum';
 
 export namespace PARAMS {
   export const PASTORDERS = (
-    { id }: Trader,
+    { traderId }: Trader,
     symbol: FUTURE,
     pageNo: number,
   ) => ({
-    traderId: id,
+    traderId,
     symbol,
     pageNo,
   });

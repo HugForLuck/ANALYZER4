@@ -1,5 +1,5 @@
 import { BUSINESS_TYPE } from '../enums/businessType.enum';
-import { SYMBOL } from '../enums/symbols.enum';
+import { SYMBOL } from '../enums/symbol.enum';
 
 export class SymbolFeesParams {
   constructor(

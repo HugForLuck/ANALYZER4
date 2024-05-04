@@ -4,6 +4,12 @@ import { BitgetModule } from 'src/connectors/bitget.module';
 import { ConfigModule } from '@nestjs/config';
 import { CONFIG_OPTIONS, MYSQL_CONFIG } from './consts/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Trader } from 'src/db/traders/trader.entity';
+import { TraderService } from 'src/db/traders/trader.service';
+import { TraderModule } from 'src/db/traders/trader.module';
+import { Order } from 'src/db/orders/order.entity';
+import { OrderService } from 'src/db/orders/order.service';
+import { OrderModule } from 'src/db/orders/order.module';
 
 @Module({
   imports: [
@@ -15,13 +21,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'analyzer4',
-      entities: [],
-      synchronize: true,
+      entities: [Trader, Order],
+      synchronize: false,
     }),
+    TraderModule,
+    OrderModule,
     BitgetModule,
   ],
   controllers: [],
-  providers: [AppService],
+  providers: [AppService, TraderService, OrderService],
 })
 export class AppModule {
   onApplicationBootstrap() {}
